@@ -4,18 +4,21 @@ import java.util.Scanner;
 
 public class AdminUser extends User {
 
-    AdminUser(HotSearchList hotSearchList) {
+    String password;
+
+    AdminUser(HotSearchList hotSearchList, String password) {
         super(hotSearchList);
+        this.password = password;
     }
 
-    public void setEventAsSuper() {
+    public void addSuperEvent() {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Please input event title that wants to be super:");
+        System.out.println("Please input event title:");
         String title = scan.nextLine().trim().toLowerCase();
-        if (hotSearchList.setEventAsSuper(title)) {
-            System.out.println("Set event " + title + " as super successfully.");
+        if (hotSearchList.addSuper(new HotSearchEvent(title))) {
+            System.out.println("Success, add event " + title + " as super.");
         } else {
-            System.out.println("Set event " + title + " as super failed.");
+            System.out.println("Failed, event " + title + " already exists.");
         }
     }
 }

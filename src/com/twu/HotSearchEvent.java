@@ -2,18 +2,24 @@ package com.twu;
 
 public class HotSearchEvent {
 
-    String title;
-    String description;
-    Integer hotValue = 0;
-    Boolean isSuper = false;
+    public String title;
+    public Integer hotValue = 0;
+    public Boolean isSuper = false;
+    public Boolean isBought = false;
+    public Integer boughtPosition = 0;
+    public Integer lastBoughtValue = 0;
+    public Integer currentPosition = 0;
 
-    HotSearchEvent(String title, String description) {
+    HotSearchEvent(String title) {
         this.title = title.toLowerCase();
-        this.description = description;
     }
 
     @Override
     public String toString() {
-        return title + ", " + description + ", " + hotValue.toString() + ", " + isSuper.toString();
+        return title + " " + hotValue.toString();
+    }
+
+    public Integer getHotValue() {
+        return hotValue;
     }
 }

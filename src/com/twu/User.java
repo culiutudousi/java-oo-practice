@@ -19,9 +19,7 @@ public abstract class User {
         Scanner scan = new Scanner(System.in);
         System.out.println("Please input new event title:");
         String title = scan.nextLine().trim().toLowerCase();
-        System.out.println("Please input new event description:");
-        String description = scan.nextLine().trim().toLowerCase();
-        HotSearchEvent event = new HotSearchEvent(title, description);
+        HotSearchEvent event = new HotSearchEvent(title);
         if (hotSearchList.add(event)) {
             System.out.println("Add new event successfully.");
         } else {
